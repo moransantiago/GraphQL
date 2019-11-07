@@ -1,0 +1,73 @@
+# GET
+
+type Course {
+  _id: ID
+  title: String!
+  teacher: String
+  description: String!
+  topic: String
+  people: [Student]
+}
+
+type Student {
+  _id: ID!
+  name: String!
+  email: String!
+}
+
+# QUERY
+
+type Query {
+  "Returns every course"
+  getCourses: [Course]
+  "Returns a course"
+  getCourse(id: ID!): Course
+  "Returns every student"
+  getStudents: [Student]
+  "Returns a student"
+  getStudent(id: ID!): Student
+}
+
+# INPUT
+input CourseInput {
+  title: String!
+  teacher: String
+  description: String!
+  topic: String
+}
+
+input CourseEditInput {
+  title: String
+  teacher: String
+  description: String
+  topic: String
+}
+
+input StudentInput {
+  name: String!
+  email: String!
+}
+
+input StudentEditInput {
+  name: String
+  email: String
+}
+
+# MUTATION
+
+type Mutation {
+  "Creates a course"
+  createCourse(input: CourseInput!): Course
+  "Edits a course"
+  editCourse(id: ID!, input: CourseEditInput): Course
+  "Deletes a course"
+  deleteCourse(id: ID!): ID
+  "Creates a student"
+  createStudent(input: StudentInput!): Student
+  "Edits a student"
+  editStudent(id: ID!, input: StudentEditInput): Student
+  "Deletes a student"
+  deleteStudent(id: ID!): ID
+  "Adds a person to a course"
+  addPeople(courseId: ID!, personId: ID!): Course
+}
