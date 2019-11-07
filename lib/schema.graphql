@@ -1,7 +1,7 @@
 # GET
 
 type Course {
-  _id: ID
+  _id: ID!
   title: String!
   teacher: String
   description: String!
@@ -15,20 +15,8 @@ type Student {
   email: String!
 }
 
-# QUERY
-
-type Query {
-  "Returns every course"
-  getCourses: [Course]
-  "Returns a course"
-  getCourse(id: ID!): Course
-  "Returns every student"
-  getStudents: [Student]
-  "Returns a student"
-  getStudent(id: ID!): Student
-}
-
 # INPUT
+
 input CourseInput {
   title: String!
   teacher: String
@@ -51,6 +39,19 @@ input StudentInput {
 input StudentEditInput {
   name: String
   email: String
+}
+
+# QUERY
+
+type Query {
+  "Returns every course"
+  getCourses: [Course]
+  "Returns a course"
+  getCourse(id: ID!): Course
+  "Returns every student"
+  getStudents: [Student]
+  "Returns a student"
+  getStudent(id: ID!): Student
 }
 
 # MUTATION
