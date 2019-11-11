@@ -100,5 +100,8 @@ public
 # TernJS port file
 .tern-port
 
+# .vscode
+.vscode
+
 # Package-lock.json
 package-lock.json
