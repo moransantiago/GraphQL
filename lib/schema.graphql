@@ -85,7 +85,7 @@ type Query {
   "Returns a student"
   getPerson(id: ID!): Person
   "Executes a global search"
-  searchItems(keyword: String!) : [GlobalSearch]
+  searchItems(keyword: String!): [GlobalSearch]
 }
 
 # MUTATION
