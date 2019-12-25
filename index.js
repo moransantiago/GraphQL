@@ -31,6 +31,4 @@ app.use('/api', gqlMiddleware({
     graphiql: isDev
 }));
 
-app.listen(port, _ => {
-    console.log(`Listening at http://localhost:${port}/api`);
-});
+app.listen(port, () => console.log(`Listening at http://localhost:${port}/api`));
